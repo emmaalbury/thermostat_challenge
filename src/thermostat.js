@@ -3,6 +3,7 @@ function Thermostat() {
 
 Thermostat.prototype.temperature = 20
 Thermostat.prototype.powerSaving = "on"
+Thermostat.prototype.DEFAULT_TEMPERATURE = 20
 
 Thermostat.prototype.increaseTemp = function() {
   this.temperature += 1;
@@ -35,7 +36,7 @@ Thermostat.prototype.flipPowerSaving = function () {
 }
 
 Thermostat.prototype.resetTemp = function() {
-  this.temperature = 20
+  this.temperature = this.DEFAULT_TEMPERATURE
 }
 
 Thermostat.prototype.energyUsage = function() {
