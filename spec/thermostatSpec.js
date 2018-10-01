@@ -35,4 +35,48 @@ describe("Thermostat", function() {
     ts.flipPowerSaving()
     expect(ts.powerSaving).toEqual("off")
   });
+
+  it("Shouldn't increase temperature past 25 if powerSaving is on", function() {
+    var step;
+    for (step = 0; step < 6; step++) {
+      ts.increaseTemp()
+    }
+    expect(ts.temperature).toEqual(25)
+  });
+
+  it("Shouldn't increase temperature past 32 if powerSaving is off", function() {
+    ts.flipPowerSaving()
+    var step;
+    for (step = 0; step < 13; step++) {
+      ts.increaseTemp()
+    }
+    expect(ts.temperature).toEqual(32)
+  });
+
+  it("Should be able to reset the temperature to 20", function() {
+    ts.increaseTemp()
+    ts.resetTemp()
+    expect(ts.temperature).toEqual(20)
+  });
+
+  it("knows when it has a medium energy usage", function() {
+    expect(ts.energyUsage()).toEqual("medium-usage")
+  });
+
+  it("knows when it has a low energy usage", function() {
+    var step;
+    for (step = 0; step < 3; step++) {
+      ts.decreaseTemp()
+    }
+    expect(ts.energyUsage()).toEqual("low-usage")
+  });
+
+  it("knows when it has a high energy usage", function() {
+    var step;
+    for (step = 0; step < 5; step++) {
+      ts.increaseTemp()
+    }
+    expect(ts.energyUsage()).toEqual("high-usage")
+  });
+
 });

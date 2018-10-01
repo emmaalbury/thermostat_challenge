@@ -6,6 +6,16 @@ Thermostat.prototype.powerSaving = "on"
 
 Thermostat.prototype.increaseTemp = function() {
   this.temperature += 1;
+  if (this.powerSaving == 'on') {
+    if(this.temperature > 25) {
+      this.temperature = 25
+    }
+  }
+  else {
+    if(this.temperature > 32) {
+      this.temperature = 32
+    }
+  }
 }
 
 Thermostat.prototype.decreaseTemp = function () {
@@ -21,5 +31,21 @@ Thermostat.prototype.flipPowerSaving = function () {
   }
   else {
     this.powerSaving = "on";
+  }
+}
+
+Thermostat.prototype.resetTemp = function() {
+  this.temperature = 20
+}
+
+Thermostat.prototype.energyUsage = function() {
+  if(this.temperature < 18) {
+    return 'low-usage'
+  }
+  else if(this.temperature < 25) {
+    return 'medium-usage'
+  }
+  else {
+    return 'high-usage'
   }
 }
