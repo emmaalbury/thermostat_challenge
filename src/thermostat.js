@@ -2,12 +2,12 @@ function Thermostat() {
 }
 
 Thermostat.prototype.temperature = 20
-Thermostat.prototype.powerSaving = "on"
+Thermostat.prototype.powerSaving = true
 Thermostat.prototype.DEFAULT_TEMPERATURE = 20
 
 Thermostat.prototype.increaseTemp = function() {
   this.temperature += 1;
-  if (this.powerSaving == 'on') {
+  if (this.powerSaving === true) {
     if(this.temperature > 25) {
       this.temperature = 25
     }
@@ -26,13 +26,12 @@ Thermostat.prototype.decreaseTemp = function () {
   }
 }
 
-Thermostat.prototype.flipPowerSaving = function () {
-  if (this.powerSaving == "on") {
-    this.powerSaving = "off";
-  }
-  else {
-    this.powerSaving = "on";
-  }
+Thermostat.prototype.flipPowerSavingOn = function () {
+  this.powerSaving = true;
+}
+
+Thermostat.prototype.flipPowerSavingOff = function () {
+  this.powerSaving = false;
 }
 
 Thermostat.prototype.resetTemp = function() {

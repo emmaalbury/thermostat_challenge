@@ -28,12 +28,12 @@ describe("Thermostat", function() {
   });
 
   it("Has power saving mode on by default", function() {
-    expect(ts.powerSaving).toEqual("on")
+    expect(ts.powerSaving).toEqual(true)
   });
 
   it("Should be able to turn off power saving", function() {
-    ts.flipPowerSaving()
-    expect(ts.powerSaving).toEqual("off")
+    ts.flipPowerSavingOff()
+    expect(ts.powerSaving).toEqual(false)
   });
 
   it("Shouldn't increase temperature past 25 if powerSaving is on", function() {
@@ -45,7 +45,7 @@ describe("Thermostat", function() {
   });
 
   it("Shouldn't increase temperature past 32 if powerSaving is off", function() {
-    ts.flipPowerSaving()
+    ts.flipPowerSavingOff()
     var step;
     for (step = 0; step < 13; step++) {
       ts.increaseTemp()
