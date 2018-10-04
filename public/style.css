@@ -9,3 +9,36 @@
 .high-usage {
   color: red;
 }
+
+body {
+  background-image: url("https://imgix.ranker.com/user_node_img/50058/1001144666/original/h-photo-u1?w=650&q=50&fm=jpg&fit=crop&crop=faces");
+  background-size: 100%;
+  background-color: #cccccc;
+  vertical-align: text-top;
+}
+
+h1 {
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Amatic SC', cursive;
+}
+
+#select-city {
+  text-align: center;
+}
+
+#current-city {
+  font-size: 50px;
+  font-family: 'Amatic SC', cursive;
+}
+
+p {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Amatic SC', cursive;
+}
+
+button {
+  font-family: 'Amatic SC', cursive;
+  font-size: 50px;
+}
